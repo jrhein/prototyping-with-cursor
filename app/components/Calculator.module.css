@@ -1,0 +1,143 @@
+.calculator {
+  background: #1a1a1a;
+  border-radius: 15px;
+  padding: 25px;
+  width: 340px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 20px;
+  }
+}
+
+.screen {
+  background: #000;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  position: relative;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  overflow: hidden;
+}
+
+.screen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  animation: scanlines 1.5s linear infinite;
+  background-size: 100% 20px;
+}
+
+.equation {
+  color: rgba(255, 183, 99, 0.6);
+  font-size: 14px;
+  min-height: 20px;
+  margin-bottom: 5px;
+  font-family: "DM Sans", monospace;
+  text-align: right;
+}
+
+.display {
+  color: #FF6B35;
+  font-size: 36px;
+  text-shadow: 0 0 10px rgba(255, 107, 53, 0.3);
+  font-family: "DM Sans", monospace;
+  text-align: right;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 65px);
+  grid-auto-rows: 65px;
+  gap: 12px;
+  justify-content: center;
+}
+
+.button {
+  background: #2a2a2a;
+  border: 1px solid rgba(255, 107, 53, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  font-family: "DM Sans", monospace;
+  font-size: 20px;
+  width: 65px;
+  height: 65px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.button span {
+  display: block;
+  line-height: 1;
+}
+
+.button:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.operator {
+  background: #332222;
+  color: #FF6B35;
+  border-color: rgba(255, 107, 53, 0.2);
+}
+
+.operator:hover {
+  background: #3a2825;
+}
+
+.equal {
+  background: linear-gradient(135deg, #FF6B35, #FFB563);
+  color: #fff;
+  grid-row: span 2;
+  border-radius: 25px;
+  height: 142px; /* 2 * 65px + 12px gap */
+}
+
+.equal:hover {
+  background: linear-gradient(135deg, #FFB563, #FF6B35);
+}
+
+.clear {
+  background: #332222;
+  color: #FFB563;
+  border-color: rgba(255, 183, 99, 0.2);
+}
+
+.clear:hover {
+  background: #3a2825;
+}
+
+.zero {
+  grid-column: span 2;
+  border-radius: 25px;
+  width: 142px; /* 2 * 65px + 12px gap */
+} 

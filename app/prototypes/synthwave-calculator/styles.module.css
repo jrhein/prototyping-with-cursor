@@ -1,0 +1,58 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #1a1a2e, #16213e);
+  color: #fff;
+  position: relative;
+}
+
+.backButton {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  border-radius: 25px;
+  color: #FF6B35;
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: rgba(255, 107, 53, 0.2);
+  border-color: rgba(255, 107, 53, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+}
+
+.backButton:active {
+  transform: translateY(1px);
+}
+
+.backButton span:first-child {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.description {
+  font-size: 1.2rem;
+  margin: 1rem 0 3rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+}
+
+.calculatorWrapper {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+} 

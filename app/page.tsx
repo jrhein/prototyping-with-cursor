@@ -15,6 +15,11 @@ export default function Home() {
       description: 'An interactive button that creates a colorful confetti explosion',
       path: '/prototypes/confetti-button'
     },
+    {
+      title: 'Synthwave Calculator',
+      description: 'A calculator with retro synthwave aesthetics, featuring neon glows and smooth animations',
+      path: '/prototypes/synthwave-calculator'
+    },
     // Add your new prototypes here like this:
     // {
     //   title: 'Your new prototype',
