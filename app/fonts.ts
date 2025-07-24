@@ -1,6 +1,7 @@
-import { Instrument_Sans } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 
-export const instrumentSans = Instrument_Sans({
+export const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['400', '500', '700'],
 }); 
