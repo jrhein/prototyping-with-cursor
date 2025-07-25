@@ -1,0 +1,748 @@
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  padding: 2rem;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.container.dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Mode Toggle */
+.modeToggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.dark .toggleContainer {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: #555;
+}
+
+.toggleLabel {
+  font-size: 9px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.activeLabel {
+  color: #ff4500;
+}
+
+.dark .toggleLabel {
+  color: #666;
+}
+
+.dark .activeLabel {
+  color: #ff4500;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: #ddd;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.toggle:hover {
+  border-color: #ff4500;
+}
+
+.toggleDark {
+  background: #ff4500;
+  border-color: #e63e00;
+}
+
+.toggleSlider {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  left: 1px;
+  transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggleDark .toggleSlider {
+  transform: translateX(18px);
+}
+
+/* Device Container */
+.device {
+  background: #e8e8e8;
+  border-radius: 8px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  width: 800px;
+  max-width: 90vw;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.deviceDark {
+  background: #2a2a2a;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Top Panel */
+.topPanel {
+  background: #d5d5d5;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #c0c0c0;
+  transition: all 0.3s ease;
+}
+
+.deviceDark .topPanel {
+  background: #1a1a1a;
+  border-bottom-color: #444;
+}
+
+.connectionPorts {
+  display: flex;
+  gap: 20px;
+}
+
+.portGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.portLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.deviceDark .portLabel {
+  color: #999;
+}
+
+.port {
+  width: 16px;
+  height: 8px;
+  background: #999;
+  border-radius: 2px;
+  position: relative;
+}
+
+.port.active {
+  background: #ff4500;
+  box-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
+}
+
+.speakerGrille {
+  width: 120px;
+  height: 40px;
+  background: 
+    radial-gradient(circle 2px, #999 1px, transparent 1px);
+  background-size: 8px 8px;
+  border-radius: 4px;
+}
+
+/* Device Body */
+.deviceBody {
+  background: #f0f0f0;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.deviceDark .deviceBody {
+  background: #333;
+}
+
+/* Header Section */
+.deviceHeader {
+  margin-bottom: 20px;
+}
+
+.branding {
+  text-align: left;
+}
+
+.modelName {
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0;
+  color: #333;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
+}
+
+.deviceDark .modelName {
+  color: #fff;
+}
+
+.deviceType {
+  font-size: 11px;
+  color: #ff4500;
+  margin: 4px 0 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Display Section */
+.displaySection {
+  background: #2a2a2a;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  border: 1px solid #555;
+  transition: all 0.3s ease;
+}
+
+.deviceDark .displaySection {
+  background: #111;
+  border-color: #333;
+}
+
+.display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #00ff88;
+  font-family: 'Courier New', monospace;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.waveformContainer {
+  flex: 1;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+
+.waveform {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 4px #00ff88);
+}
+
+.statusIcons {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.playIcon, .recordIcon {
+  opacity: 0.6;
+}
+
+/* Control Section */
+.controlSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.volumeKnob, .tempoKnob {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.knob {
+  width: 48px;
+  height: 48px;
+  background: #ddd;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.deviceDark .knob {
+  background: #555;
+  border-color: #666;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.deviceDark .knob::after {
+  background: #999;
+}
+
+.knob::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 16px;
+  background: #666;
+  border-radius: 2px;
+}
+
+.orangeKnob {
+  background: #ff4500;
+  border-color: #e63e00;
+}
+
+.orangeKnob::after {
+  background: #fff;
+}
+
+.knobLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.deviceDark .knobLabel {
+  color: #999;
+}
+
+.buttonGrid {
+  display: flex;
+  gap: 8px;
+}
+
+.modeButton {
+  padding: 8px 16px;
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.modeButton:hover {
+  background: #d5d5d5;
+}
+
+.modeButton:active {
+  background: #ccc;
+  transform: translateY(1px);
+}
+
+.deviceDark .modeButton {
+  background: #444;
+  border-color: #555;
+  color: #fff;
+}
+
+.deviceDark .modeButton:hover {
+  background: #555;
+}
+
+.deviceDark .modeButton:active {
+  background: #666;
+}
+
+/* Piano Section */
+.pianoSection {
+  margin-bottom: 24px;
+}
+
+.keyGrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.pianoKey {
+  aspect-ratio: 1;
+  background: #f8f8f8;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.1s ease;
+  position: relative;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.pianoKey:hover {
+  background: #f0f0f0;
+  border-color: #ff4500;
+}
+
+.pianoKey.active {
+  background: #ff4500;
+  color: white;
+  border-color: #e63e00;
+  transform: translateY(2px);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.deviceDark .pianoKey {
+  background: #555;
+  border-color: #666;
+  color: #fff;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.deviceDark .pianoKey:hover {
+  background: #666;
+  border-color: #ff4500;
+}
+
+.sharpKeyGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.sharpKey {
+  aspect-ratio: 1;
+  background: #333;
+  border: 2px solid #555;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.1s ease;
+  box-shadow: 
+    0 3px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.sharpKey:hover {
+  background: #444;
+  border-color: #ff4500;
+}
+
+.sharpKey.active {
+  background: #ff4500;
+  color: white;
+  border-color: #e63e00;
+  transform: translateY(2px);
+  box-shadow: 
+    0 1px 4px rgba(0, 0, 0, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.deviceDark .sharpKey {
+  background: #111;
+  border-color: #333;
+}
+
+.deviceDark .sharpKey:hover {
+  background: #222;
+  border-color: #ff4500;
+}
+
+.keyNote {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.keyBinding {
+  font-size: 9px;
+  opacity: 0.6;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+}
+
+/* Bottom Controls */
+.bottomControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.utilityButton {
+  padding: 8px 12px;
+  background: #e0e0e0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.utilityButton:hover {
+  background: #d5d5d5;
+}
+
+.utilityButton:active {
+  background: #ccc;
+  transform: translateY(1px);
+}
+
+.deviceDark .utilityButton {
+  background: #444;
+  border-color: #555;
+  color: #fff;
+}
+
+.deviceDark .utilityButton:hover {
+  background: #555;
+}
+
+.deviceDark .utilityButton:active {
+  background: #666;
+}
+
+.transportButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.transportButton {
+  width: 40px;
+  height: 40px;
+  background: #e0e0e0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.transportButton:hover {
+  background: #d5d5d5;
+}
+
+.transportButton:active {
+  background: #ccc;
+  transform: translateY(1px);
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.deviceDark .transportButton {
+  background: #444;
+  border-color: #555;
+  color: #fff;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.deviceDark .transportButton:hover {
+  background: #555;
+}
+
+.deviceDark .transportButton:active {
+  background: #666;
+}
+
+.recordButton {
+  background: #ff4500;
+  border-color: #e63e00;
+  color: white;
+}
+
+.recordButton:hover {
+  background: #e63e00;
+}
+
+.rightControls {
+  display: flex;
+  gap: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .modeToggle {
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .toggleContainer {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .toggleLabel {
+    font-size: 8px;
+  }
+  
+  .toggle {
+    width: 32px;
+    height: 16px;
+  }
+  
+  .toggleSlider {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .toggleDark .toggleSlider {
+    transform: translateX(14px);
+  }
+  
+  .device {
+    width: 95vw;
+    max-width: 500px;
+  }
+  
+  .topPanel {
+    padding: 8px 16px;
+  }
+  
+  .connectionPorts {
+    gap: 12px;
+  }
+  
+  .speakerGrille {
+    width: 80px;
+    height: 30px;
+  }
+  
+  .deviceBody {
+    padding: 16px;
+  }
+  
+  .modelName {
+    font-size: 2rem;
+  }
+  
+  .controlSection {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .buttonGrid {
+    order: 1;
+  }
+  
+  .volumeKnob {
+    order: 0;
+  }
+  
+  .tempoKnob {
+    order: 2;
+  }
+  
+  .keyGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  
+  .keyGrid .pianoKey:nth-child(n+5) {
+    grid-column: span 1;
+  }
+  
+  .sharpKeyGrid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 300px;
+  }
+  
+  .sharpKeyGrid .sharpKey:nth-child(n+4) {
+    display: none;
+  }
+  
+  .keyNote {
+    font-size: 12px;
+  }
+  
+  .keyBinding {
+    font-size: 8px;
+  }
+  
+  .bottomControls {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .transportButtons {
+    order: 1;
+  }
+  
+  .utilityButton {
+    font-size: 9px;
+    padding: 6px 10px;
+  }
+  
+  .transportButton {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+} 

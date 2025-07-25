@@ -20,6 +20,11 @@ export default function Home() {
       description: 'A calculator with retro synthwave aesthetics, featuring neon glows and smooth animations',
       path: '/prototypes/synthwave-calculator'
     },
+    {
+      title: 'T.E. Piano',
+      description: 'Digital piano interface inspired by Teenage Engineering design with clean minimalist aesthetics',
+      path: '/prototypes/synthwave-piano'
+    },
     // Add your new prototypes here like this:
     // {
     //   title: 'Your new prototype',
