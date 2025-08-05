@@ -1,148 +1,113 @@
 .container {
   min-height: 100vh;
-  margin: 0;
   padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Decorative circle */
-.container::before {
-  content: '';
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60vh;
-  height: 60vh;
-  background: var(--gradient-sunset);
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.8;
-  mix-blend-mode: soft-light;
-}
-
-/* Horizontal line */
-.container::after {
-  content: '';
-  position: fixed;
-  bottom: 25%;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--color-teal);
-  opacity: 0.2;
-  z-index: -1;
 }
 
 .header {
-  position: relative;
-  padding: 2rem;
-  z-index: 1;
-  width: 100%;
-  max-width: 1200px;
+  margin-bottom: 3rem;
   text-align: center;
-  margin-bottom: 6rem;
 }
 
 .header h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 500;
-  color: var(--color-cream);
+  font-size: 2.5rem;
   margin: 0;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
-
-.header h1::after {
-  content: "プロトタイプ";
-  display: block;
-  font-size: 0.875rem;
-  letter-spacing: 0.1em;
-  margin-top: 1rem;
-  color: var(--color-teal);
-  opacity: 0.8;
+  background: linear-gradient(to right, #FF6B35, #FFB563);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .grid {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
-  width: 100%;
+  gap: 2rem;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .card {
-  background: rgba(26, 31, 53, 0.5);
-  backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.2);
   padding: 2rem;
+  border-radius: 15px;
   text-decoration: none;
-  color: var(--color-cream);
-  position: relative;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(42, 139, 139, 0.1);
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 6px;
-  height: 6px;
-  background: var(--color-teal);
-  border-radius: 50%;
-  opacity: 0.5;
-  transition: all 0.4s ease;
+  color: #fff;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-teal);
-  background: rgba(26, 31, 53, 0.7);
-}
-
-.card:hover::before {
-  opacity: 1;
-  transform: scale(1.2);
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.1);
 }
 
 .card h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  color: var(--color-cream);
-  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #FF6B35, #FFB563);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .card p {
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: rgba(245, 242, 233, 0.7);
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
 }
 
+/* Responsive styles */
 @media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card h3 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
   .container {
     padding: 1rem;
   }
-  
+
   .header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
-  
-  .container::before {
-    width: 40vh;
-    height: 40vh;
+
+  .header h1 {
+    font-size: 1.75rem;
   }
-  
+
   .grid {
-    gap: 2rem;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .card {
+    padding: 1.25rem;
   }
 } 

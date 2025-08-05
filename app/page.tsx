@@ -25,6 +25,16 @@ export default function Home() {
       description: 'Digital piano interface inspired by Teenage Engineering design with clean minimalist aesthetics',
       path: '/prototypes/synthwave-piano'
     },
+    {
+      title: 'Contact Form',
+      description: 'A modern, responsive contact form with clean design and form validation',
+      path: '/prototypes/contact-form'
+    },
+    {
+      title: 'Omniswitcher Toggle',
+      description: 'A React-based search interface that automatically switches between AI and traditional search modes based on user input',
+      path: '/prototypes/omniswitcher-toggle'
+    },
     // Add your new prototypes here like this:
     // {
     //   title: 'Your new prototype',

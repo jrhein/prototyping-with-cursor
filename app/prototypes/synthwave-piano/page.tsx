@@ -239,32 +239,35 @@ export default function SynthwavePiano() {
 
           {/* Piano Keys Section */}
           <div className={styles.pianoSection}>
-            <div className={styles.keyGrid}>
-              {whiteKeys.map((keyData, index) => (
-                <button
-                  key={keyData.note}
-                  className={`${styles.pianoKey} ${activeKeys.has(keyData.key) ? styles.active : ''}`}
-                  onMouseDown={() => handleKeyPress(keyData)}
-                  data-note={keyData.note}
-                >
-                  <span className={styles.keyNote}>{keyData.note}</span>
-                  <span className={styles.keyBinding}>{keyData.key.toUpperCase()}</span>
-                </button>
-              ))}
-            </div>
-            
-            <div className={styles.sharpKeyGrid}>
-              {blackKeys.map((keyData) => (
-                <button
-                  key={keyData.note}
-                  className={`${styles.sharpKey} ${activeKeys.has(keyData.key) ? styles.active : ''}`}
-                  onMouseDown={() => handleKeyPress(keyData)}
-                  data-note={keyData.note}
-                >
-                  <span className={styles.keyNote}>{keyData.note}</span>
-                  <span className={styles.keyBinding}>{keyData.key.toUpperCase()}</span>
-                </button>
-              ))}
+            <div className={styles.pianoLayout}>
+              <div className={styles.sharpKeyRow}>
+                {blackKeys.map((keyData) => (
+                  <button
+                    key={keyData.note}
+                    className={`${styles.sharpKey} ${activeKeys.has(keyData.key) ? styles.active : ''}`}
+                    onMouseDown={() => handleKeyPress(keyData)}
+                    data-note={keyData.note}
+                    style={{ left: `${keyData.position * 12.5 - 4}%` }}
+                  >
+                    <span className={styles.keyNote}>{keyData.note}</span>
+                    <span className={styles.keyBinding}>{keyData.key.toUpperCase()}</span>
+                  </button>
+                ))}
+              </div>
+              
+              <div className={styles.whiteKeyRow}>
+                {whiteKeys.map((keyData) => (
+                  <button
+                    key={keyData.note}
+                    className={`${styles.pianoKey} ${activeKeys.has(keyData.key) ? styles.active : ''}`}
+                    onMouseDown={() => handleKeyPress(keyData)}
+                    data-note={keyData.note}
+                  >
+                    <span className={styles.keyNote}>{keyData.note}</span>
+                    <span className={styles.keyBinding}>{keyData.key.toUpperCase()}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
