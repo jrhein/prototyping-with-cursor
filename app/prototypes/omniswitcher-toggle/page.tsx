@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.css';
 
@@ -51,6 +51,7 @@ export default function OmniswitcherToggle() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [showResults, setShowResults] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Natural language detection patterns
   const NL_PATTERNS = {
@@ -298,6 +299,23 @@ export default function OmniswitcherToggle() {
     }
   };
 
+  // Handle click outside to close search
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        handleClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <div className={styles.container}>
       <div className={styles.buttonContainer}>
@@ -307,7 +325,7 @@ export default function OmniswitcherToggle() {
         <div className={styles.topHeader}></div>
         
         <div className={styles.searchBarContainer}>
-          <div className={`${styles.searchContainer} ${isOpen ? styles.searchContainerOpen : ''}`}>
+          <div ref={searchContainerRef} className={`${styles.searchContainer} ${isOpen ? styles.searchContainerOpen : ''}`}>
             <div className={`${styles.searchHeader} ${isOpen ? styles.searchHeaderOpen : ''}`}>
               <div className={`${styles.searchInput} ${isOpen ? styles.searchInputOpen : ''}`}>
                 {!isOpen ? (
