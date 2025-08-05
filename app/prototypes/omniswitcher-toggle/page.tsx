@@ -1,14 +1,23 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.css';
+
+// TypeScript interfaces
+interface SearchResult {
+  type: string;
+  icon: string;
+  content: string;
+  subtext?: string;
+  highlights?: { start: number; end: number }[];
+}
 
 // HighlightedText component
 const HighlightedText = ({ text, highlights }: { text: string; highlights: { start: number; end: number }[] }) => {
   if (!highlights || highlights.length === 0) return <>{text}</>;
 
-  const parts: JSX.Element[] = [];
+  const parts: React.ReactElement[] = [];
   let lastIndex = 0;
 
   highlights.forEach(({ start, end }, i) => {

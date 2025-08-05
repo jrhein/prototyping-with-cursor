@@ -75,7 +75,7 @@
     font-size: 20px;
   }
 
-  h1 {
+  .title {
     font-size: 1.75rem;
     margin-top: 4rem;
   }
@@ -97,7 +97,7 @@
     padding: 1.5rem;
   }
 
-  h1 {
+  .title {
     margin-top: 3rem;
   }
 

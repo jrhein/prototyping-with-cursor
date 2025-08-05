@@ -10,7 +10,7 @@ export default function SynthwaveCalculator() {
         <span>←</span>
         <span>Back</span>
       </Link>
-      <h1>Synthwave Calculator</h1>
+      <h1 className={styles.title}>Synthwave Calculator</h1>
       <p className={styles.description}>A calculator with retro synthwave aesthetics, featuring neon glows and smooth animations.</p>
       <div className={styles.calculatorWrapper}>
         <Calculator />
